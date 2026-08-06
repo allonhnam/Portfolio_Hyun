@@ -24,14 +24,17 @@ const setupTextHover = (container, type) => {
     const { min, max, default: base } = FONT_WEIGHTS[type];
 
     const animateLetter = (letter, weight, duration = 0.25) => {
-        return gsap.to(letter, { duration, ease: 'power2out',
-            fontVariationSettings: `'wght' ${weight}`, 
+        return gsap.to(letter, {
+            duration,
+            ease: "power2.out",
+            overwrite: "auto",
+            fontVariationSettings: `'wght' ${weight}`,
         });
     };
 
     const handleMouseMove = (e) => {
         const { left } = container.getBoundingClientRect();
-        const mouseX = e.clienX - left;
+        const mouseX = e.clientX - left;
 
         letters.forEach((letter) => {
             const {left: l, width: w} = letter.getBoundingClientRect();
@@ -74,7 +77,7 @@ const Welcome = () => {
         <p ref={subtitleRef}>
             {renderText(
                 "welcome to my", 
-                'test-3xl, font-georama', 
+                "text-3xl font-georama", 
                 100,
             )}
         </p>
