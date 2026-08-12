@@ -1,4 +1,4 @@
-import WindowsControls from "#components/WindowsControls";
+import WindowsControls from "#components/WindowControls";
 import WindowWrapper from "#hoc/WindowWrapper";
 import useLocationStore from "#store/location";
 import { locations } from "#constants";

@@ -1,4 +1,4 @@
-import WindowsControls from "#components/WindowsControls";
+import WindowsControls from "#components/WindowControls";
 import WindowWrapper from "#hoc/WindowWrapper";
 import useWindowStore from "#store/window";
 

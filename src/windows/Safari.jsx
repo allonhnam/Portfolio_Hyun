@@ -1,4 +1,4 @@
-import WindowsControls from "#components/WindowsControls";
+import WindowsControls from "#components/WindowControls";
 import { blogPosts } from "#constants";
 import WindowWrapper from "#hoc/WindowWrapper";
 import {

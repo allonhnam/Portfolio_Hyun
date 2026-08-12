@@ -1,4 +1,4 @@
-import WindowsControls from "#components/WindowsControls";
+import WindowsControls from "#components/WindowControls";
 import WindowWrapper from "#hoc/WindowWrapper";
 import { Download } from "lucide-react";
 import { Document, Page, pdfjs } from "react-pdf";

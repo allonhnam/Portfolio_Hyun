@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import useWindowStore from "#store/window.js";
 
 const Dock = () => {
-  const { openWindow, closeWindow, windows } = useWindowStore();
+  const { openWindow, closeWindow, minimizeWindow, focusWindow, windows } = useWindowStore();
   const dockRef = useRef(null);
 
   useGSAP(() => {
@@ -69,7 +69,10 @@ const Dock = () => {
       return
     }
 
-    if(window.isOpen) {
+    if (window.isOpen && window.isMinimized) {
+      minimizeWindow(app.id);
+      focusWindow(app.id);
+    } else if (window.isOpen) {
       closeWindow(app.id);
     } else {
       openWindow(app.id);
