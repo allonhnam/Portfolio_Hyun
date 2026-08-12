@@ -21,6 +21,8 @@ const Dock = () => {
         const { left } = dock.getBoundingClientRect();
 
         icons.forEach((icon) => {
+            if (icon.dataset.bouncing) return;
+
             const { left: iconLeft, width } = icon.getBoundingClientRect();
             const center = iconLeft - left + width / 2;
             const distance = Math.abs(mouseX - center);
@@ -59,9 +61,21 @@ const Dock = () => {
   });
 
 
-  const toggleApp = (app) => {
+  const bounceIcon = (icon) => {
+    if (!icon) return;
+
+    icon.dataset.bouncing = "true";
+
+    gsap.timeline({
+      onComplete: () => delete icon.dataset.bouncing,
+    })
+      .to(icon, { y: -34, scale: 1.1, duration: 0.22, ease: "power4.out" })
+      .to(icon, { y: 0, scale: 1, duration: 0.7, ease: "bounce.out" });
+  };
+
+  const toggleApp = (app, icon) => {
     if(!app.canOpen) return;
-    
+
     const window = windows[app.id];
 
     if (!window) {
@@ -76,6 +90,7 @@ const Dock = () => {
       closeWindow(app.id);
     } else {
       openWindow(app.id);
+      bounceIcon(icon);
     }
   };
 
@@ -92,7 +107,7 @@ const Dock = () => {
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
-              onClick={() => toggleApp({ id, canOpen})}
+              onClick={(e) => toggleApp({ id, canOpen }, e.currentTarget)}
             >
 
                 <img 

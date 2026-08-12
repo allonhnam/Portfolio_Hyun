@@ -3,6 +3,7 @@ import useLocationStore from "#store/location";
 import useWindowStore from "#store/window";
 import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
+import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 
 const projects = locations.work?.children ?? [];
@@ -17,7 +18,33 @@ const Home = () => {
     };
 
   useGSAP(() => {
-    Draggable.create(".folder");
+    const folders = document.querySelectorAll(".folder");
+    const instances = [];
+
+    folders.forEach((el) => {
+      const [instance] = Draggable.create(el, {
+        cursor: false,
+        onPress() {
+          if (!el.classList.contains("selected")) {
+            document
+              .querySelectorAll(".folder.selected")
+              .forEach((folder) => folder.classList.remove("selected"));
+          }
+        },
+        onDrag() {
+          if (!el.classList.contains("selected")) return;
+
+          document.querySelectorAll(".folder.selected").forEach((other) => {
+            if (other === el) return;
+            gsap.set(other, { x: `+=${this.deltaX}`, y: `+=${this.deltaY}` });
+          });
+        },
+      });
+
+      instances.push(instance);
+    });
+
+    return () => instances.forEach((instance) => instance.kill());
   }, []);
 
   return (
