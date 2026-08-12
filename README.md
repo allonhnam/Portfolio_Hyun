@@ -1,0 +1,1 @@
+// make minimize and maximize work

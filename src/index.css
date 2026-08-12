@@ -356,6 +356,26 @@ body {
     h2 {
       @apply font-bold text-sm text-center w-full;
     }
+
+    .textfile {
+      @apply p-6 max-h-[60vh] overflow-y-auto;
+
+      img {
+        @apply w-full rounded-lg mb-5 object-cover;
+      }
+
+      .subtitle {
+        @apply text-gray-400 text-sm font-medium mb-4;
+      }
+
+      .description {
+        @apply space-y-4;
+
+        p {
+          @apply text-sm text-gray-700 leading-relaxed;
+        }
+      }
+    }
   }
 
   #imgfile {
