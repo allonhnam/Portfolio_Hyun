@@ -12,12 +12,12 @@ const Contact = () => {
 
       <div className="p-5 space-y-5">
         <img
-          src="/images/adrian.jpg"
+          src="/images/Hyun.png"
           alt="Hyun"
           className="w-20 rounded-full"
         />
 
-        <h3>Connect with me</h3>
+        <h3>Connect With Me</h3>
         <p>Excelling in Teamwork and Engineering Creativity</p>
         <p>hnam65@gatech.edu</p>
         <ul>

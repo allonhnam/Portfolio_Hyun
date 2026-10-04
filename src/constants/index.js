@@ -42,18 +42,18 @@ const navLinks = [
       icon: "finder.png",
       canOpen: true,
     },
-    {
-      id: "safari",
-      name: "Articles", // was "Safari"
-      icon: "safari.png",
-      canOpen: true,
-    },
-    {
-      id: "photos",
-      name: "Gallery", // was "Photos"
-      icon: "photos.png",
-      canOpen: true,
-    },
+    // {
+    //   id: "safari",
+    //   name: "Articles", // was "Safari"
+    //   icon: "safari.png",
+    //   canOpen: true,
+    // },
+    // {
+    //   id: "photos",
+    //   name: "Gallery", // was "Photos"
+    //   icon: "photos.png",
+    //   canOpen: true,
+    // },
     {
       id: "contact",
       name: "Contact", // or "Get in touch"
@@ -70,39 +70,17 @@ const navLinks = [
       id: "trash",
       name: "Archive", // was "Trash"
       icon: "trash.png",
-      canOpen: false,
+      canOpen: true,
     },
   ];
   
   const blogPosts = [
-    {
-      id: 1,
-      date: "Sep 2, 2025",
-      title:
-        "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-      image: "/images/blog1.png",
-      link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
-    },
-    {
-      id: 2,
-      date: "Aug 28, 2025",
-      title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-      image: "/images/blog2.png",
-      link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
-    },
-    {
-      id: 3,
-      date: "Aug 15, 2025",
-      title: "The Ultimate Guide to Mastering GSAP Animations",
-      image: "/images/blog3.png",
-      link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
-    },
   ];
   
   const techStack = [
     {
       category: "Frontend",
-      items: ["React.js", "Next.js", "TypeScript"],
+      items: ["React.js", "Next.js", "TypeScript/JavaScript"],
     },
     {
       category: "Mobile",
@@ -110,19 +88,19 @@ const navLinks = [
     },
     {
       category: "Styling",
-      items: ["Tailwind CSS", "Sass", "CSS"],
+      items: ["Tailwind CSS"],
     },
     {
       category: "Backend",
-      items: ["Node.js", "Express", "NestJS", "Hono"],
+      items: ["Node.js", "Express", "Java"],
     },
     {
       category: "Database",
-      items: ["MongoDB", "PostgreSQL"],
+      items: ["MongoDB", "PostgreSQL", "ETL", "AWS"],
     },
     {
       category: "Dev Tools",
-      items: ["Git", "GitHub", "Docker"],
+      items: ["Git", "GitHub", "Docker", "Claude AI", "OpenAI"],
     },
   ];
   
@@ -132,28 +110,14 @@ const navLinks = [
       text: "Github",
       icon: "/icons/github.svg",
       bg: "#f4656b",
-      link: "https://github.com/JavaScript-Mastery-Pro",
-    },
-    {
-      id: 2,
-      text: "Platform",
-      icon: "/icons/atom.svg",
-      bg: "#4bcb63",
-      link: "https://jsmastery.com/",
-    },
-    {
-      id: 3,
-      text: "Twitter/X",
-      icon: "/icons/twitter.svg",
-      bg: "#ff866b",
-      link: "https://x.com/jsmasterypro",
+      link: "https://github.com/allonhnam",
     },
     {
       id: 4,
       text: "LinkedIn",
       icon: "/icons/linkedin.svg",
       bg: "#05b6f6",
-      link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+      link: "https://www.linkedin.com/in/allonnam/",
     },
   ];
   
@@ -225,52 +189,72 @@ const navLinks = [
       // ▶ Project 1
       {
         id: 5,
-        name: "Nike Ecommerce Website Application",
+        name: "Ubliss Medical Aesthetics",
         icon: "/images/folder.png",
         kind: "folder",
         position: "top-10 left-5", // icon position inside Finder
-        windowPosition: "top-[5vh] left-5", // optional: Finder window position
+        windowPosition: "top-10 left-5", // desktop icon position
         children: [
           {
             id: 1,
-            name: "Nike Project.txt",
+            name: "Ubliss Project.txt",
             icon: "/images/txt.png",
             kind: "file",
             fileType: "txt",
             position: "top-5 left-10",
             description: [
-              "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-              "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-              "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-              "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+              "UBLISS Medical Aesthetics is an award winning practice in Queens, New York that blends advanced K Beauty treatments with a warm, personal touch.",
+              "As the founding engineer, I redesigned the customer journey so patients can explore treatments, compare services, view before-and-after results, and book appointments without ever picking up the phone.",
+              "I connected the site to the practice's booking platform and built a responsive, multilingual experience for its diverse New York audience, covering everything from promotions and memberships to patient education and aftercare.",
+              "The platform highlights treatments like Ultherapy, microneedling, dermal fillers, and neurotoxin injections. The new experience helped increase completed bookings by 37 percent.",
+              "In 2025, the site reached 9,913 visits and grew traffic by 260 percent year over year, with a strong mix of mobile and desktop visitors.",
+              "The product is built around speed, clarity, accessibility, and trust, since for many visitors the website is their first interaction with the clinic.",
             ],
           },
           {
             id: 2,
-            name: "nike.com",
+            name: "ublissny.com",
             icon: "/images/safari.png",
             kind: "file",
             fileType: "url",
-            href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
-            position: "top-10 right-20",
+            href: "https://www.ublissny.com/",
+            position: "top-5 left-52",
           },
           {
-            id: 4,
-            name: "nike.png",
+            id: 3,
+            name: "ubliss-booking.png",
             icon: "/images/image.png",
             kind: "file",
             fileType: "img",
-            position: "top-52 right-80",
-            imageUrl: "/images/project-1.png",
+            position: "top-5 right-10",
+            imageUrl: "/images/project1.png",
+          },
+          {
+            id: 4,
+            name: "ubliss-homepage.png",
+            icon: "/images/image.png",
+            kind: "file",
+            fileType: "img",
+            position: "top-52 left-10",
+            imageUrl: "/images/ubliss-homepage.png",
           },
           {
             id: 5,
-            name: "Design.fig",
-            icon: "/images/plain.png",
+            name: "ubliss-services.png",
+            icon: "/images/image.png",
             kind: "file",
-            fileType: "fig",
-            href: "https://google.com",
-            position: "top-60 right-20",
+            fileType: "img",
+            position: "top-52 left-52",
+            imageUrl: "/images/ubliss-services.png",
+          },
+          {
+            id: 6,
+            name: "ubliss-analytics.png",
+            icon: "/images/image.png",
+            kind: "file",
+            fileType: "img",
+            position: "top-52 right-10",
+            imageUrl: "/images/ubliss-analytics.png",
           },
         ],
       },
@@ -278,38 +262,38 @@ const navLinks = [
       // ▶ Project 2
       {
         id: 6,
-        name: "AI Resume Analyzer",
+        name: "AI Coach",
         icon: "/images/folder.png",
         kind: "folder",
         position: "top-52 right-80",
-        windowPosition: "top-[20vh] left-7",
+        windowPosition: "top-40 left-5",
         children: [
           {
             id: 1,
-            name: "AI Resume Analyzer Project.txt",
+            name: "AI Coach Project.txt",
             icon: "/images/txt.png",
             kind: "file",
             fileType: "txt",
             position: "top-5 right-10",
             description: [
-              "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-              "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-              "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-              "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
+              "AI Coach is a conversational learning platform that pairs you with a custom AI tutor and walks you through a real lesson using natural, back and forth voice conversation.",
+              "Instead of static tutorials, you pick a subject, a voice, and a personality, then talk through topics like Next.js, quantum computing, or derivatives just like you would with a real tutor.",
+              "Think of it like having a patient tutor on call, one who remembers your recent sessions and picks up right where you left off.",
+              "It's built with React.js, Node.js, and Clerk for secure authentication, and it helped raise full session completion by 33 percent.",
             ],
           },
           {
             id: 2,
-            name: "ai-resume-analyzer.com",
+            name: "ai-coach.com",
             icon: "/images/safari.png",
             kind: "file",
             fileType: "url",
-            href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
+            href: "https://ai-coach-dusky.vercel.app/",
             position: "top-20 left-20",
           },
           {
             id: 4,
-            name: "ai-resume-analyzer.png",
+            name: "ai-coach.png",
             icon: "/images/image.png",
             kind: "file",
             fileType: "img",
@@ -318,12 +302,12 @@ const navLinks = [
           },
           {
             id: 5,
-            name: "Design.fig",
-            icon: "/images/plain.png",
+            name: "AI Coach GitHub",
+            icon: "/icons/github.svg",
             kind: "file",
-            fileType: "fig",
-            href: "https://google.com",
-            position: "top-60 left-5",
+            fileType: "url",
+            href: "https://github.com/allonhnam/ai_coach",
+            position: "top-60 right-20",
           },
         ],
       },
@@ -331,38 +315,40 @@ const navLinks = [
       // ▶ Project 3
       {
         id: 7,
-        name: "Food Delivery App",
+        name: "AI Interviewer",
         icon: "/images/folder.png",
         kind: "folder",
         position: "top-10 left-80",
-        windowPosition: "top-[33vh] left-7",
+        windowPosition: "top-72 left-5",
         children: [
           {
             id: 1,
-            name: "Food Delivery App Project.txt",
+            name: "AI Interviewer Project.txt",
             icon: "/images/txt.png",
             kind: "file",
             fileType: "txt",
             position: "top-5 left-10",
             description: [
-              "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-              "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-              "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-              "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
+              "ID: test@gmail.com",
+              "PW: testtest",
+              "AI Interviewer is an AI-powered mock interview platform that helps candidates practice realistic interview questions and receive instant feedback.",
+              "You can create a personalized interview for a specific role, choose the interview type, and rehearse your answers in a natural voice conversation.",
+              "Past sessions stay organized in one place, making it easy to revisit feedback, track scores, and sharpen your responses before the real interview.",
+              "It's built with Next.js and TypeScript, with Firebase powering the application's data and authentication workflows.",
             ],
           },
           {
             id: 2,
-            name: "food-delivery-app.com",
+            name: "ai-interviewer.app",
             icon: "/images/safari.png",
             kind: "file",
             fileType: "url",
-            href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+            href: "https://ai-interviewer-one-eta.vercel.app/",
             position: "top-10 right-20",
           },
           {
-            id: 4,
-            name: "food-delivery-app.png",
+            id: 3,
+            name: "ai-interviewer-session.png",
             icon: "/images/image.png",
             kind: "file",
             fileType: "img",
@@ -370,12 +356,21 @@ const navLinks = [
             imageUrl: "/images/project-3.png",
           },
           {
-            id: 5,
-            name: "Design.fig",
-            icon: "/images/plain.png",
+            id: 4,
+            name: "ai-interviewer-home.png",
+            icon: "/images/image.png",
             kind: "file",
-            fileType: "fig",
-            href: "https://google.com",
+            fileType: "img",
+            position: "top-52 left-80",
+            imageUrl: "/images/ai-interviewer.png",
+          },
+          {
+            id: 5,
+            name: "AI Interviewer GitHub",
+            icon: "/icons/github.svg",
+            kind: "file",
+            fileType: "url",
+            href: "https://github.com/allonhnam/ai_interviewer",
             position: "top-60 right-20",
           },
         ],
@@ -397,7 +392,7 @@ const navLinks = [
         kind: "file",
         fileType: "img",
         position: "top-10 left-5",
-        imageUrl: "/images/adrian.jpg",
+        imageUrl: "/images/Hyun.png",
       },
       {
         id: 2,
@@ -406,7 +401,7 @@ const navLinks = [
         kind: "file",
         fileType: "img",
         position: "top-28 right-72",
-        imageUrl: "/images/adrian-2.jpg",
+        imageUrl: "/images/Hyun-2.jpeg",
       },
       {
         id: 3,
@@ -415,7 +410,7 @@ const navLinks = [
         kind: "file",
         fileType: "img",
         position: "top-52 left-80",
-        imageUrl: "/images/adrian-3.jpeg",
+        imageUrl: "/images/Hyun-3.png",
       },
       {
         id: 4,
@@ -424,13 +419,13 @@ const navLinks = [
         kind: "file",
         fileType: "txt",
         position: "top-60 left-5",
-        subtitle: "Meet the Developer Behind the Code",
-        image: "/images/adrian.jpg",
+        subtitle: "Pleasure to meet you!",
+        image: "/images/Hyun.png",
         description: [
-          "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-          "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-          "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-          "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+          "Hey! I’m Hyun 👋, a founding engineer who loves turning early stage ideas into products people actually use.",
+          "I work across the stack with React, Node.js, and Next.js, and lately I’ve been researching how to turn messy unorganized data into clean structured output using the lowest tier LLM that can still match a much bigger model’s results.",
+          "Before software I was a financial analyst crunching numbers, so I care just as much about business impact as I do about clean code.",
+          "Outside of work you’ll find me finishing my master’s in Computer Science at Georgia Tech, hunting down good coffee, or tinkering on side projects late into the night 😅",
         ],
       },
     ],
@@ -471,15 +466,6 @@ const navLinks = [
         position: "top-10 left-10",
         imageUrl: "/images/trash-1.png",
       },
-      {
-        id: 2,
-        name: "trash2.png",
-        icon: "/images/image.png",
-        kind: "file",
-        fileType: "img",
-        position: "top-40 left-80",
-        imageUrl: "/images/trash-2.png",
-      },
     ],
   };
   
@@ -507,6 +493,7 @@ const navLinks = [
     safari: { ...DEFAULT_WINDOW_STATE },
     photos: { ...DEFAULT_WINDOW_STATE },
     terminal: { ...DEFAULT_WINDOW_STATE },
+    trash: { ...DEFAULT_WINDOW_STATE },
     txtfile: { ...DEFAULT_WINDOW_STATE },
     imgfile: { ...DEFAULT_WINDOW_STATE },
   };

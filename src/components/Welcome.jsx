@@ -76,13 +76,13 @@ const Welcome = () => {
     <section id="welcome">
         <p ref={subtitleRef}>
             {renderText(
-                "welcome to", 
+                "Hello, this is",
                 "text-3xl font-georama", 
                 100,
             )}
         </p>
         <h1 ref={titleRef} className="mt-7">
-            {renderText("Hyun's Place", 'text-9xl italic font-georama')}
+            {renderText("Hyun's Workspace", 'text-8xl font-georama')}
         </h1>
 
         <div className="small-screen">

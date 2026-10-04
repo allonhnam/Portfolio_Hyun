@@ -6,6 +6,23 @@ import gsap from "gsap";
 import { dockApps } from "#constants";
 import { useGSAP } from "@gsap/react";
 import useWindowStore from "#store/window.js";
+import {
+  ArchiveRestore,
+  ContactRound,
+  FolderOpen,
+  Images,
+  Newspaper,
+  SquareTerminal,
+} from "lucide-react";
+
+const APP_ICONS = {
+  finder: FolderOpen,
+  safari: Newspaper,
+  photos: Images,
+  contact: ContactRound,
+  terminal: SquareTerminal,
+  trash: ArchiveRestore,
+};
 
 const Dock = () => {
   const { openWindow, closeWindow, minimizeWindow, focusWindow, windows } = useWindowStore();
@@ -17,46 +34,7 @@ const Dock = () => {
 
     const icons = dock.querySelectorAll(".dock-icon");
 
-    const animateIcons = (mouseX) => {
-        const { left } = dock.getBoundingClientRect();
-
-        icons.forEach((icon) => {
-            if (icon.dataset.bouncing) return;
-
-            const { left: iconLeft, width } = icon.getBoundingClientRect();
-            const center = iconLeft - left + width / 2;
-            const distance = Math.abs(mouseX - center);
-
-            const intensity = Math.exp(-(distance ** 2.5) / 20000);
-
-            gsap.to(icon, {
-                scale: 1 + 0.25 * intensity,
-                y: -15 * intensity,
-                duration: 0.2,
-                ease: "power1.out",
-            });
-        });
-    };
-
-    const handleMouseMove = (e) => {
-        const { left } = dock.getBoundingClientRect();
-        animateIcons(e.clientX - left);
-    };
-
-    const resetIcons = () => icons.forEach((icon) => gsap.to(icon, {
-        scale: 1,
-        y: 0,
-        duration: 0.3,
-        ease: "power1.out",
-        }),
-    );
-    dock.addEventListener('mousemove', handleMouseMove);
-    dock.addEventListener('mouseleave', resetIcons);
-
-    return () => {
-        dock.removeEventListener("mousemove", handleMouseMove);
-        dock.removeEventListener("mouseleave", resetIcons);
-    };
+    return () => icons.forEach((icon) => gsap.killTweensOf(icon));
 
   });
 
@@ -69,8 +47,8 @@ const Dock = () => {
     gsap.timeline({
       onComplete: () => delete icon.dataset.bouncing,
     })
-      .to(icon, { y: -34, scale: 1.1, duration: 0.22, ease: "power4.out" })
-      .to(icon, { y: 0, scale: 1, duration: 0.7, ease: "bounce.out" });
+      .to(icon, { y: -7, scale: 0.94, duration: 0.14, ease: "power2.out" })
+      .to(icon, { y: 0, scale: 1, duration: 0.28, ease: "back.out(2)" });
   };
 
   const toggleApp = (app, icon) => {
@@ -97,7 +75,10 @@ const Dock = () => {
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
-        {dockApps.map(({ id, name, icon, canOpen }) => (
+        {dockApps.map(({ id, name, canOpen }) => {
+          const AppIcon = APP_ICONS[id] ?? FolderOpen;
+
+          return (
           <div key={id} className="relative flex justify-center">
             <button
               type="button"
@@ -110,15 +91,11 @@ const Dock = () => {
               onClick={(e) => toggleApp({ id, canOpen }, e.currentTarget)}
             >
 
-                <img 
-                    src={`/images/${icon}`}
-                    alt={name}
-                    loading="lazy"
-                    className={canOpen ? "" : "opacity-60"}
-                />
+                <AppIcon aria-hidden="true" />
             </button>
           </div>
-        ))}
+          );
+        })}
         <Tooltip id="dock-tooltip" place="top" className="tooltip" />
       </div>
     </section>

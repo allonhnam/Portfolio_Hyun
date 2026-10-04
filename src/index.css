@@ -9,7 +9,8 @@ body {
   width: 100dvw;
   overflow: hidden;
   height: 100dvh;
-  background-image: url("/images/wallpaper.png");
+  background-color: #061331;
+  background-image: url("/images/desktop-background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -35,14 +36,26 @@ body {
 
 @layer base {
   main {
-    @apply w-dvw h-dvh overflow-hidden;
+    @apply w-dvw h-dvh overflow-hidden font-georama;
   }
 
   nav {
-    @apply flex justify-between items-center bg-white/50 dark:bg-black/40 backdrop-blur-3xl p-2 px-5 select-none dark:text-white;
+    @apply fixed bottom-0 left-0 right-0 z-40 flex justify-between items-center h-16 bg-[#eef5ff]/88 dark:bg-[#101827]/88 backdrop-blur-2xl px-4 select-none text-slate-700 dark:text-slate-100 border-t border-white/50 dark:border-white/10 shadow-[0_-10px_35px_rgba(4,12,35,0.22)];
 
-    div {
-      @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
+    .brand-logo {
+      @apply size-6;
+    }
+
+    .start-button {
+      @apply size-11 rounded-md flex items-center justify-center hover:bg-white/80 dark:hover:bg-white/10 active:scale-95 transition-all;
+
+      &.active {
+        @apply bg-white/90 dark:bg-white/10 shadow-sm;
+      }
+    }
+
+    > div {
+      @apply flex items-center max-sm:w-full max-sm:justify-center gap-4;
 
       &:last-child {
         @apply max-sm:hidden;
@@ -50,14 +63,14 @@ body {
     }
 
     ul {
-      @apply flex items-center gap-5 max-sm:hidden;
+      @apply flex items-center gap-2 max-sm:hidden;
     }
 
     .nav-links li {
-      @apply px-2.5 py-1 rounded-md cursor-pointer transition-colors hover:bg-blue-500 hover:text-white;
+      @apply px-3 py-2 rounded-md cursor-pointer transition-colors hover:bg-white/75 dark:hover:bg-white/10;
 
       &.active {
-        @apply bg-blue-500 text-white;
+        @apply bg-blue-600 text-white shadow-sm;
       }
 
       p {
@@ -66,21 +79,79 @@ body {
     }
 
     time {
-      @apply text-sm font-medium text-black dark:text-white;
+      @apply text-xs font-medium text-slate-700 dark:text-slate-100 min-w-34 text-right;
     }
   }
 }
 
 @layer components {
+  .start-menu {
+    @apply fixed z-1000 w-[640px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl bg-[#f3f6fc]/96 dark:bg-[#202735]/97 backdrop-blur-3xl border border-white/70 dark:border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.38)] text-slate-800 dark:text-slate-100 select-none;
+    left: 50vw;
+    bottom: 4.5rem;
+    transform: translateX(-50%);
+    animation: start-menu-in 160ms cubic-bezier(.2,.8,.2,1);
+
+    .start-search {
+      @apply mx-8 mt-8 w-[calc(100%-4rem)] h-11 flex items-center gap-3 px-4 rounded-full bg-white/85 dark:bg-[#111827]/80 border border-slate-200 dark:border-white/10 border-b-2 border-b-blue-600 text-slate-500 dark:text-slate-300 text-sm text-left;
+    }
+
+    .start-section-heading {
+      @apply flex items-center justify-between mx-10 mt-7;
+
+      h2 { @apply text-sm font-semibold; }
+      span { @apply text-xs bg-white/80 dark:bg-white/8 px-3 py-1.5 rounded-md shadow-sm; }
+    }
+
+    .start-apps {
+      @apply grid grid-cols-4 gap-2 px-8 mt-4;
+    }
+
+    .start-app {
+      @apply flex flex-col items-center justify-center gap-2 min-h-24 rounded-lg text-xs font-medium hover:bg-white/75 dark:hover:bg-white/8 transition-colors relative;
+
+      &.open::after {
+        content: "";
+        @apply absolute bottom-1 w-1.5 h-1 rounded-full bg-blue-600;
+      }
+
+      .start-app-icon {
+        @apply size-11 rounded-lg flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-700 text-white shadow-md;
+
+        svg { @apply size-6; }
+      }
+    }
+
+    .start-recommended {
+      @apply mx-10 mt-7 mb-6;
+
+      h2 { @apply text-sm font-semibold mb-3; }
+      p { @apply text-xs text-slate-500 dark:text-slate-400 bg-white/50 dark:bg-white/5 rounded-lg p-4; }
+    }
+
+    .start-footer {
+      @apply min-h-16 flex items-center justify-between px-10 bg-white/55 dark:bg-black/15 border-t border-white/70 dark:border-white/8;
+
+      button { @apply flex items-center gap-3 text-sm rounded-md p-2 hover:bg-white/70 dark:hover:bg-white/8; }
+      .start-user { @apply size-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700; }
+      .start-user svg, .power-button svg { @apply size-4; }
+    }
+  }
+
+  @keyframes start-menu-in {
+    from { opacity: 0; transform: translate(-50%, 12px) scale(.98); }
+    to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  }
+
   .icon {
     @apply p-1 hover:bg-gray-200 dark:hover:bg-white/10 rounded cursor-pointer active:scale-90 transition-transform;
   }
 
   .icon-hover {
-    @apply inline-flex items-center justify-center p-1.5 rounded-md cursor-pointer transition-colors hover:bg-blue-500;
+    @apply inline-flex items-center justify-center p-2 rounded-md cursor-pointer transition-colors hover:bg-white/80 dark:hover:bg-white/10;
 
     &.active {
-      @apply bg-blue-500;
+      @apply bg-blue-600 shadow-sm;
     }
 
     img {
@@ -98,7 +169,7 @@ body {
   }
 
   .popover {
-    @apply absolute top-full right-0 mt-3 min-w-52 bg-white/50 dark:bg-black/40 backdrop-blur-3xl border border-gray-200 dark:border-white/10 rounded-xl shadow-2xl p-2 text-sm text-gray-800 dark:text-gray-100 z-50;
+    @apply absolute bottom-full right-0 mb-3 min-w-60 bg-[#f5f8ff]/92 dark:bg-[#182234]/94 backdrop-blur-3xl border border-white/60 dark:border-white/10 rounded-xl shadow-2xl p-3 text-sm text-gray-800 dark:text-gray-100 z-50;
 
     .popover-title {
       @apply text-xs font-semibold text-gray-400 px-2 pt-1 pb-2;
@@ -110,11 +181,11 @@ body {
   }
 
   .spotlight-overlay {
-    @apply fixed top-24 left-1/2 -translate-x-1/2 z-999 w-full max-w-xl px-4;
+    @apply fixed bottom-20 left-1/2 -translate-x-1/2 z-999 w-full max-w-xl px-4;
   }
 
   .spotlight {
-    @apply flex items-center gap-3 bg-white/50 dark:bg-black/40 backdrop-blur-3xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl px-4 py-3;
+    @apply flex items-center gap-3 bg-[#f5f8ff]/94 dark:bg-[#182234]/94 backdrop-blur-3xl border border-white/60 dark:border-white/10 rounded-xl shadow-2xl px-4 py-3;
 
     input {
       @apply flex-1 bg-transparent outline-none text-lg text-gray-900 dark:text-white placeholder:text-gray-400;
@@ -134,7 +205,7 @@ body {
   }
 
   #welcome {
-    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
+    @apply text-white/92 flex flex-col justify-center items-center absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10 drop-shadow-[0_10px_35px_rgba(0,0,30,0.55)];
 
     .small-screen {
       @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
@@ -146,10 +217,10 @@ body {
   }
 
   #dock {
-    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+    @apply fixed bottom-1.5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
 
     .dock-container {
-      @apply bg-white/20 dark:bg-black/30 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
+      @apply justify-between rounded-lg p-1 flex items-center gap-1;
     }
 
     .tooltip {
@@ -157,40 +228,40 @@ body {
     }
 
     .dock-icon {
-      @apply size-14 3xl:size-20 cursor-default;
+      @apply size-12 cursor-default rounded-md flex items-center justify-center text-slate-700 dark:text-slate-100 hover:bg-white/80 dark:hover:bg-white/10 transition-colors relative;
 
-      img {
-        @apply object-cover object-center;
+      svg {
+        @apply size-6;
       }
     }
   }
 
   #window-controls {
-    @apply flex items-center gap-2;
+    @apply flex items-stretch self-stretch gap-0 order-99 -mr-4 ml-auto;
 
     button {
-      @apply size-3.5 rounded-full flex items-center justify-center cursor-pointer border border-black/5 active:scale-90 transition-transform;
+      @apply w-11 h-full rounded-none flex items-center justify-center cursor-pointer active:bg-slate-300/70 dark:active:bg-white/10 transition-colors;
     }
 
     .close {
-      @apply bg-[#ff6157];
+      @apply bg-transparent hover:bg-red-500 hover:text-white;
     }
 
     .minimize {
-      @apply bg-[#ffc030];
+      @apply bg-transparent hover:bg-slate-300/70 dark:hover:bg-white/10;
     }
 
     .maximize {
-      @apply bg-[#2acb42];
+      @apply bg-transparent hover:bg-slate-300/70 dark:hover:bg-white/10;
     }
 
     .control-icon {
-      @apply size-2 text-black/60 opacity-0 group-hover/controls:opacity-100 transition-opacity;
+      @apply size-3.5 text-current opacity-100;
     }
   }
 
   #window-header {
-    @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-white/50 dark:bg-black/40 backdrop-blur-3xl border-b border-gray-200 dark:border-white/10 select-none text-sm text-gray-400 cursor-default;
+    @apply flex items-center justify-between min-h-11 px-4 py-0 rounded-t-xl bg-[#edf3fc]/92 dark:bg-[#172033]/94 backdrop-blur-3xl border-b border-slate-200/80 dark:border-white/10 select-none text-sm text-slate-600 dark:text-slate-300 cursor-default;
   }
 
   .maximized {
@@ -198,39 +269,47 @@ body {
   }
 
   .resize-handle {
-    @apply absolute z-10;
+    @apply absolute z-20;
 
     &.resize-n {
-      @apply top-0 inset-x-2 h-1.5;
+      @apply top-0 inset-x-3 h-2.5;
     }
 
     &.resize-s {
-      @apply bottom-0 inset-x-2 h-1.5;
+      @apply bottom-0 inset-x-3 h-2.5;
     }
 
     &.resize-e {
-      @apply right-0 inset-y-2 w-1.5;
+      @apply right-0 inset-y-3 w-2.5;
     }
 
     &.resize-w {
-      @apply left-0 inset-y-2 w-1.5;
+      @apply left-0 inset-y-3 w-2.5;
     }
 
     &.resize-ne {
-      @apply top-0 right-0 size-3;
+      @apply top-0 right-0 size-5;
     }
 
     &.resize-nw {
-      @apply top-0 left-0 size-3;
+      @apply top-0 left-0 size-5;
     }
 
     &.resize-se {
-      @apply bottom-0 right-0 size-3;
+      @apply bottom-0 right-0 size-5;
     }
 
     &.resize-sw {
-      @apply bottom-0 left-0 size-3;
+      @apply bottom-0 left-0 size-5;
     }
+  }
+
+  .media-resize-wrap {
+    @apply relative block w-full;
+  }
+
+  .media-resize-handle {
+    @apply absolute -right-1 -bottom-1 size-4 rounded-sm bg-blue-500 border-2 border-white dark:border-neutral-900 shadow cursor-nwse-resize z-20;
   }
 
   #safari {
@@ -419,6 +498,10 @@ body {
         @apply font-bold text-sm text-center flex-1;
       }
     }
+
+    .pdf-preview {
+      @apply relative max-h-[85vh] max-w-[90vw] overflow-auto p-2;
+    }
   }
 
   #finder {
@@ -479,6 +562,30 @@ body {
     }
   }
 
+  #trash {
+    @apply absolute w-lg h-80 left-1/3 top-32 bg-white dark:bg-neutral-900 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+
+    h2 {
+      @apply font-bold text-sm text-center w-full;
+    }
+
+    .content {
+      @apply relative h-full p-8 bg-white dark:bg-neutral-900;
+
+      li {
+        @apply absolute flex items-center flex-col gap-3 cursor-default p-2 rounded-lg;
+
+        img {
+          @apply object-contain object-center size-16 rounded-lg;
+        }
+
+        p {
+          @apply text-sm text-center font-medium w-40 rounded-md dark:text-gray-200;
+        }
+      }
+    }
+  }
+
   #txtfile {
     @apply w-md absolute top-36 right-32 bg-white dark:bg-neutral-900 dark:text-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
@@ -508,7 +615,7 @@ body {
   }
 
   #imgfile {
-    @apply w-xl absolute top-40 left-2/12 bg-white dark:bg-neutral-900 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-4xl absolute top-40 left-2/12 bg-white dark:bg-neutral-900 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     #window-header {
       p {
@@ -517,7 +624,7 @@ body {
     }
 
     .preview {
-      @apply p-2 bg-gray-200 dark:bg-neutral-800 max-h-[70vh];
+      @apply p-2 bg-gray-200 dark:bg-neutral-800 max-h-[85vh] overflow-auto;
 
       img {
         @apply w-full h-fit object-contain object-center;
@@ -535,6 +642,7 @@ body {
         img {
           @apply group-hover:bg-gray-950/10 p-1 rounded-md;
         }
+
 
         p {
           @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
