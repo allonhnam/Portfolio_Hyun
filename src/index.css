@@ -46,6 +46,10 @@ body {
       @apply size-6;
     }
 
+    .profile-logo {
+      @apply size-7 object-contain;
+    }
+
     .start-button {
       @apply size-11 rounded-md flex items-center justify-center hover:bg-white/80 dark:hover:bg-white/10 active:scale-95 transition-all;
 

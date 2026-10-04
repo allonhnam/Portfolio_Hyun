@@ -122,7 +122,7 @@ const Navbar = () => {
         <button type="button" className={clsx("start-button", startOpen && "active")} aria-label="Start" aria-expanded={startOpen} onClick={handleStartClick}>
           <img src="/icons/windows.svg" alt="" className="brand-logo" />
         </button>
-        <p className="font-bold">Hyun Nam</p>
+        <img src="/favicon.png" alt="Hyun Nam" className="profile-logo" />
 
         <ul className="nav-links">
           {navLinks.map(({ id, name, type }) => (
