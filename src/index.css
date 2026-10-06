@@ -108,7 +108,7 @@ body {
     }
 
     .start-apps {
-      @apply grid grid-cols-4 gap-2 px-8 mt-4;
+      @apply grid grid-cols-5 gap-2 px-8 mt-4;
     }
 
     .start-app {
@@ -586,6 +586,113 @@ body {
         p {
           @apply text-sm text-center font-medium w-40 rounded-md dark:text-gray-200;
         }
+      }
+    }
+  }
+
+  #experience {
+    @apply absolute w-5xl max-w-[92vw] h-[650px] max-h-[82vh] left-[12vw] top-16 bg-[#f7f9fd] dark:bg-[#111827] text-slate-800 dark:text-slate-100 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+
+    #window-header h2 {
+      @apply font-semibold text-sm;
+    }
+
+    .experience-layout {
+      @apply grid grid-cols-[250px_1fr] h-[calc(100%-2.75rem)];
+    }
+
+    .experience-tabs {
+      @apply bg-[#edf2fa] dark:bg-[#0b1220] border-r border-slate-200 dark:border-white/10 p-4 overflow-y-auto;
+
+      > .eyebrow {
+        @apply px-2 mb-3;
+      }
+
+      button {
+        @apply w-full flex items-center gap-3 text-left p-3 rounded-lg hover:bg-white/75 dark:hover:bg-white/5 transition-colors mb-1;
+
+        &.active {
+          @apply bg-white dark:bg-blue-500/15 shadow-sm text-blue-700 dark:text-blue-300;
+        }
+
+        > span:last-child {
+          @apply min-w-0 flex flex-col;
+        }
+
+        strong {
+          @apply text-sm font-semibold truncate;
+        }
+
+        small {
+          @apply text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5;
+        }
+      }
+    }
+
+    .company-mark {
+      @apply shrink-0 size-9 rounded-lg flex items-center justify-center text-white text-[10px] font-bold shadow-sm;
+
+      &.large {
+        @apply size-14 rounded-xl text-sm;
+      }
+    }
+
+    .experience-detail {
+      @apply p-8 overflow-y-auto;
+    }
+
+    .experience-hero {
+      @apply flex items-center gap-4 pb-6 border-b border-slate-200 dark:border-white/10;
+
+      h1 {
+        @apply text-2xl font-bold mt-1;
+      }
+
+      .role-line {
+        @apply text-sm font-medium text-slate-600 dark:text-slate-300 mt-1;
+
+        span {
+          @apply text-xs font-normal text-slate-400 ml-2;
+        }
+      }
+
+      a {
+        @apply ml-auto flex items-center gap-2 text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-3 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-500/20;
+
+        svg { @apply size-3.5; }
+      }
+    }
+
+    .eyebrow {
+      @apply text-[10px] uppercase tracking-[0.16em] font-semibold text-slate-400;
+    }
+
+    .experience-summary {
+      @apply text-sm leading-7 text-slate-600 dark:text-slate-300 my-6;
+    }
+
+    .experience-detail section h2 {
+      @apply text-sm font-semibold mb-3;
+    }
+
+    .experience-highlights {
+      @apply space-y-3;
+
+      li {
+        @apply text-sm leading-6 text-slate-600 dark:text-slate-300 pl-5 relative;
+
+        &::before {
+          content: "";
+          @apply absolute left-0 top-2.5 size-1.5 rounded-full bg-blue-500;
+        }
+      }
+    }
+
+    .experience-skills {
+      @apply flex flex-wrap gap-2 mt-7;
+
+      span {
+        @apply text-xs px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/6 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10;
       }
     }
   }

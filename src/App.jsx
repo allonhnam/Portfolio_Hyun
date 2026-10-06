@@ -3,7 +3,7 @@ import { Draggable } from "gsap/Draggable";
 import { useEffect, useState } from "react";
 
 import { Dock, Home, Navbar, Spotlight, Welcome } from "#components";
-import { Terminal, Safari, Resume, Finder, Text, Image, Contact, Trash } from "#windows";
+import { Terminal, Safari, Resume, Finder, Text, Image, Contact, Trash, Experience } from "#windows";
 import useWindowStore from "#store/window";
 
 gsap.registerPlugin(Draggable);
@@ -95,6 +95,7 @@ const App = () => {
         <Image />
         <Contact />
         <Trash />
+        <Experience />
         <Home />
         <Spotlight />
 

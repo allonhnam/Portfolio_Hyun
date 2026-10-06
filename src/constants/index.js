@@ -1,8 +1,13 @@
-const navLinks = [
+  const navLinks = [
     {
       id: 1,
       name: "Projects",
       type: "finder",
+    },
+    {
+      id: 2,
+      name: "Experience",
+      type: "experience",
     },
     {
       id: 3,
@@ -493,6 +498,7 @@ const navLinks = [
     safari: { ...DEFAULT_WINDOW_STATE },
     photos: { ...DEFAULT_WINDOW_STATE },
     terminal: { ...DEFAULT_WINDOW_STATE },
+    experience: { ...DEFAULT_WINDOW_STATE },
     trash: { ...DEFAULT_WINDOW_STATE },
     txtfile: { ...DEFAULT_WINDOW_STATE },
     imgfile: { ...DEFAULT_WINDOW_STATE },

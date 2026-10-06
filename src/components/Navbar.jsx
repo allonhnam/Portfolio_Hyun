@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
-import { ArchiveRestore, Check, ContactRound, FolderOpen, Power, Search, SquareTerminal, UserRound, Wifi } from "lucide-react";
+import { ArchiveRestore, BriefcaseBusiness, Check, ContactRound, FolderOpen, Power, Search, SquareTerminal, UserRound, Wifi } from "lucide-react";
 import { navIcons, navLinks, locations } from "#constants";
 import clsx from "clsx";
 
@@ -16,6 +16,7 @@ const getIconName = (img) => img.split("/").pop().replace(".svg", "");
 
 const START_APPS = [
   { name: "Portfolio", windowKey: "finder", Icon: FolderOpen },
+  { name: "Experience", windowKey: "experience", Icon: BriefcaseBusiness },
   { name: "Contact", windowKey: "contact", Icon: ContactRound },
   { name: "Skills", windowKey: "terminal", Icon: SquareTerminal },
   { name: "Archive", windowKey: "trash", Icon: ArchiveRestore },
